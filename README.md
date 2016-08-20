@@ -1,0 +1,36 @@
+# -
+курсы
+
+package anot;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+/**
+ * Created by Stasik on 14.08.2016.
+ */
+public class MyClass {
+    public static class Main {
+        public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
+
+            try {
+                Method[] methods = MyClass.class.getDeclaredMethods();
+
+                for (Method method : methods) {
+                    if (method.isAnnotationPresent(Test.class)) {
+                        Test test = method.getAnnotation(Test.class);
+                        int a = test.a();
+                        int b = test.b();
+
+                        MyClass myClass = new MyClass();
+
+                        method.invoke(myClass, a, b);
+
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }}
