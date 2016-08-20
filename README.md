@@ -10,8 +10,12 @@ import java.lang.reflect.Method;
 /**
  * Created by Stasik on 14.08.2016.
  */
+
+
 public class MyClass {
+
     public static class Main {
+    
         public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
 
             try {
@@ -34,3 +38,21 @@ public class MyClass {
             }
         }
     }}
+
+
+package anot;
+
+/**
+ * Created by Stasik on 14.08.2016.
+ */
+public class Anot {
+
+
+    @Test(a = 2, b = 5)
+    public void  test(int a, int b) {
+        System.out.println(b-a);
+    }
+
+
+
+}
